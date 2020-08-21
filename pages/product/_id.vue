@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h3>首页</h3>
-    <nuxt-link to="/login">登录</nuxt-link>
+    <h3>产品详情</h3>
   </div>
 </template>
 
