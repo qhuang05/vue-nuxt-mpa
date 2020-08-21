@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    layout: 'default'
+    layout: 'common'
 }
 </script>
 
