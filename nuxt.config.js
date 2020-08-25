@@ -38,6 +38,9 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/axios',
+    '@/plugins/foo',
+    {src: '@/plugins/foo.client', mode: 'client'},
+    {src: '@/plugins/foo.server', mode: 'server'}
   ],
   /*
   ** Auto import components
@@ -57,6 +60,7 @@ export default {
   ],
   axios: {
     proxy: true,
+    prefix: '/api',
   },
   proxy: {
     '/api': {

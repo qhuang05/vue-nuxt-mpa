@@ -4,12 +4,12 @@
       <div>
           <p>
             <label>
-                <input type="text" v-model="username" />
+                用户名：<input type="text" v-model="username" />
             </label>
           </p>
           <p>
             <label>
-                <input type="password" v-model="password" />
+                密码：<input type="password" v-model="password" />
             </label>
           </p>
           <button @click="login">登录</button>
@@ -28,7 +28,13 @@ export default {
     },
     methods: {
         login() {
-            this.$router.push('/home');
+            let params = {
+                username: this.username,
+                password: this.password
+            }
+            this.$store.dispatch('user/login', params).then( () => {
+                this.$router.push('/home');
+            })
         }
     }
 }

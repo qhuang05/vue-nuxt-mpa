@@ -2,12 +2,15 @@
   <div>
     <h3>首页</h3>
     <nuxt-link to="/login">登录</nuxt-link>
-    <div>
-      asyncData数据预取：
-      <div>{{products}}</div>
-      组件异步数据：
-      <div>{{products2}}</div>
+
+    <div class="mt30 mb30">
+      服务端渲染数据：
+      <div>{{preList}}</div>
+      页面ajax数据：
+      <div>{{list}}</div>
     </div>
+
+    <Hello msg="我是Hello组件, asynData不能用于组件中" />
   </div>
 </template>
 
@@ -16,33 +19,22 @@ export default {
     layout: 'default',
     data() {
       return {
-        products2: []
+        list: []
       }
     },
     async asyncData(ctx) {
-      // axios未封装
-      // let {$axios, params} = ctx;
-      // let ret = await $axios.get('/api/product/list');
-      // return {
-      //   products: ret.data.data
-      // }
-
-      // axios封装后，在vue.config.js下配置plugins
       let {$axios, params} = ctx;
-      let ret = await $axios.get('/api/product/list');
+      let ret = await $axios.get('/product/list');
       return {
-        products: ret
+        // preList: ret.data.data,   //axios未封装(在nuxt.config.js中配置axios => prefix: '/api')
+        preList: ret              //axios封装后, 在vue.config.js下配置plugins(axios.js)
       }
     },
     methods: {
-      async getProducts() {
-        // axios未封装
-        // let ret = await this.$axios.get('/api/product/list');
-        // this.products2 = ret.data.data;
-        
-        // axios封装后, 在vue.config.js下配置plugins
-        let ret = await this.$axios.get('/api/product/list');
-        this.products2 = ret;
+      async getList() {
+        let ret = await this.$axios.get('/product/list');
+        // this.list = ret.data.data;  //axios未封装(在nuxt.config.js中配置axios => prefix: '/api')
+        this.list = ret;            //axios封装后, 在vue.config.js下配置plugins(axios.js)
       }
     },
     beforeMount() {
@@ -50,11 +42,16 @@ export default {
     },
     mounted() {
       console.log('mounted');
-      this.getProducts();
+      this.getList();
     }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  .mt30{
+    margin-top: 30px;
+  }
+  .mb30{
+    margin-bottom: 30px;
+  }
 </style>
