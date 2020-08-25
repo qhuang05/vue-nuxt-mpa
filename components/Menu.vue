@@ -33,9 +33,7 @@
 </template>
 
 <script>
-import MenuItem from '~/components/Menu'
 export default {
-    components: {MenuItem},
     computed: {
         menuList() {
             return this.$store.state.user.menuList;

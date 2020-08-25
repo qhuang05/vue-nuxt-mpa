@@ -9,6 +9,7 @@
 
 <script>
 export default {
+    name: 'MenuItem',
     props: ['data']
 }
 </script>
