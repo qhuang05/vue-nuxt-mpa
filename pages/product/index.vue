@@ -16,6 +16,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  html, body{
+    background: burlywood;
+  }
 </style>

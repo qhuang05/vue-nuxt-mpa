@@ -53,7 +53,7 @@ app.post('/user/getMenu', (req, res)=>{
                 name: '选品',
                 path: '/product',
                 children: [
-                    {name: '全部产品', path: '/product/all'}, 
+                    {name: '全部产品', path: '/product/all'},
                     {
                         name: '成本计算器',
                         path: '/counter',

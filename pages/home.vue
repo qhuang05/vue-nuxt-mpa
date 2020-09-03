@@ -7,6 +7,15 @@
         <button @click="add">Add</button>
         <button @click="asyncAdd">asyncAdd</button>
       </div>
+
+      <div>
+        字体图标测试：
+        <span class="iconfont bubble-icon">&#xe630;</span>
+        <span class="iconfont zw_icon-img_pay_zhjhzf zs-icon"></span>
+        <svg class="svg-icon" aria-hidden="true">
+          <use xlink:href="#zw_icon-icon_excel"></use>
+        </svg>
+      </div>
   </div>
 </template>
 
@@ -33,6 +42,14 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  html,body {
+    background: #fff;
+  }
+  .bubble-icon{
+    color: red;
+  }
+  .zs-icon{
+    color: green;
+  }
 </style>

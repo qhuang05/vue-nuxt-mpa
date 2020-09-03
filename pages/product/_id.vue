@@ -3,7 +3,7 @@
     <h3>产品详情</h3>
     <div>
       资源文件：
-      <img src="~/assets/600-600.jpg" width="80" />
+      <img src="~/assets/images/600-600.jpg" width="80" />
       <img src="/t1.jpg" width="80" />
     </div>
 

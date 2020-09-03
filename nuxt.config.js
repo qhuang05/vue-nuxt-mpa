@@ -29,13 +29,16 @@ export default {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    '@/assets/style/iconfont.css',
+    '@/assets/style/main.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    {src: '@/assets/style/font/iconfont.js', ssr: false},
     '@/plugins/element-ui',
     '@/plugins/axios',
     '@/plugins/foo',
