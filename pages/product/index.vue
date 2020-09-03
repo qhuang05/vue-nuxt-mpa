@@ -16,8 +16,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  html, body{
-    background: burlywood;
-  }
+<style lang="scss" scoped>
+
 </style>

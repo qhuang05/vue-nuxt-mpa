@@ -38,14 +38,17 @@ export default {
       async asyncAdd() {
         await this.$store.dispatch('count/asyncAdd', 2);
       }
-    }
+    },
+    // beforeCreate(){
+    //   document.querySelector('body').setAttribute('style', 'background:red');
+    // },
+    // beforeDestroy(){
+    //    document.querySelector('body').setAttribute('style', 'background:""');
+    // }
 }
 </script>
 
-<style lang="scss">
-  html,body {
-    background: #fff;
-  }
+<style lang="scss" scoped>
   .bubble-icon{
     color: red;
   }

@@ -1,19 +1,16 @@
 @charset 'UTF-8';
-$baseBgColor: #efefef;
-$baseFontColor: #666;
-$baseFontFamily: 'PingFang SC Medium','Microsoft YaHei',Arial,'Helvetica Neue','SimSun';
-$btnColor: #fff;
-$btnBgcolor: #07f !default;
-$btnBgcolorHover: darken($btnBgcolor, 5%) !default;
-$btnBorderColor: darken($btnBgcolor, 10%) !default;
-$btnBgcolorSuccess: #7f0;
-$btnBgcolorHoverSuccess: darken($btnBgcolorSuccess, 5%);
-$btnBorderColorSuccess: darken($btnBgcolorSuccess, 10%);
-$btnBgcolorError: #f70;
-$btnBgcolorHoverError: darken($btnBgcolorError, 5%);
-$btnBorderColorError: darken($btnBgcolorError, 10%);
+$BASE_BgColor: #fff;
+$BASE_FontColor: #333;
+$BASE_FontFamily: 'PingFang SC Medium','Microsoft YaHei',Arial,'Helvetica Neue','SimSun';
+$COLOR_1: #428bca;
+$COLOR_1_Hover: darken($COLOR_1, 5%) !default;
+$COLOR_2: #f00;
+$COLOR_2_Hover: darken($COLOR_2, 5%) !default;
+$COLOR_3: #ccc;
+$COLOR_3_Hover: darken($COLOR_3, 5%) !default;
 
 html, body {
-    background: $baseBgColor;
-    color: $baseFontColor;
+    font-family: $BASE_FontFamily;
+    color: $BASE_FontColor;
+    background: $BASE_BgColor;
 }
