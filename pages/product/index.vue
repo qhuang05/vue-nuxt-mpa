@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  layout: 'common'
+  layout: 'default'
 }
 </script>
 

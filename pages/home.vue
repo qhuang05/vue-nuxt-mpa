@@ -21,7 +21,7 @@
 
 <script>
 export default {
-    layout: 'common',
+    layout: 'default',
     async asyncData(ctx) {
       // ctx.app.fooServer('66');
       ctx.app.$fooInject('i66');
