@@ -19,7 +19,7 @@
 
 <script>
 export default {
-    layout: 'default',
+    layout: 'blank',
     data() {
         return {
             username: '',

@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  layout: 'common',
+  layout: 'default',
   async asyncData(ctx) {
     let { params } = ctx;
     return {
