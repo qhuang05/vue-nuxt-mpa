@@ -31,6 +31,7 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     '@/assets/style/iconfont.css',
+    '@/assets/style/iconfontold.css',
     '@/assets/style/main.scss'
   ],
   /*

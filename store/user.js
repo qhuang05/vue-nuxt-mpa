@@ -4,7 +4,8 @@ import Cookie from 'js-cookie'
 export  const state = () => ({
     token: '',
     userInfo: '',
-    menuList: []
+    menuList: [], //头部导航栏
+    sideMenuList: [], //头部右侧菜单栏
 })
 
 export const getters = {}
@@ -20,18 +21,23 @@ export const mutations = {
     },
     UPDATE_USERINFO(state, data) {
         state.userInfo = data;
-        window.localStorage.setItem('userInfo', data ? JSON.stringify(data) : '');
+        if(data){
+            window.localStorage.setItem('userInfo', data ? JSON.stringify(data) : '');
+        } else{
+            window.localStorage.removeItem('userInfo');
+        }
     },
-    SET_MENU(state, data) {
-        state.menuList = data;
+    UPDATE_MENU(state, data){
+        state.menuList = data.menuList;
+        state.sideMenuList = data.sideMenuList;
     }
 }
 
 export const actions = {
     async login({commit}, args) {
         let ret = await http.post('/user/login', {...args});
-        commit('SET_TOKEN', 'token_xxx');
-        commit('UPDATE_USERINFO', {username: ret});
+        commit('SET_TOKEN', 'token_20200910010');
+        commit('UPDATE_USERINFO', ret);
         return ret;
     },
     async logout({commit}) {
@@ -41,7 +47,7 @@ export const actions = {
     },
     async getMenu({commit}, args) {
         let ret = await http.post('/user/getMenu', {...args});
-        commit('SET_MENU', ret);
+        commit('UPDATE_MENU', ret);
     }
 }
 

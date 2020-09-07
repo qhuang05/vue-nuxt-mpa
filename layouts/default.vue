@@ -11,7 +11,7 @@
       </header> -->
       <div>
         导航菜单：
-        <Menu />
+        <!-- <Menu /> -->
       </div>
       <div class="container">
         <nuxt />
