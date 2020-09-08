@@ -20,7 +20,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    @import '~/assets/style/variable.scss';
     footer {
         text-align:center;
+        padding: 20px 0;
+        border-top: 1px solid $color4;
     }
 </style>

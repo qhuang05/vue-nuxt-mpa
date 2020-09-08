@@ -26,7 +26,7 @@
 <script>
 export default {
   layout: "default",
-  middleware: ["auth"],
+  // middleware: ["auth"],
   async asyncData(ctx) {
     if(process.server){
       ctx.app.$fooServer('66');
@@ -36,6 +36,7 @@ export default {
   mounted() {
     this.$fooClient("55");
     this.$foo("i55");
+    console.log(this.$route.params);
   },
   methods: {
     add() {

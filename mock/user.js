@@ -27,6 +27,16 @@ router.post('/logout', (req, res)=>{
     })
 });
 
+// 获取用户信息
+router.get('/getInfo', (req, res)=>{
+    const {username} = req.body;
+    res.json({
+        status: 1000,
+        msg: '退出成功',
+        data: {username, level: 4}
+    })
+})
+
 // 获取导航栏
 router.post('/getMenu', (req, res)=>{
     const {username} = req.body;
@@ -96,5 +106,20 @@ router.post('/getMenu', (req, res)=>{
         data: {menuList, sideMenuList}
     })
 });
+
+// 判断页面权限
+router.post('/checkUrlAuth', (req, res)=>{
+    let hasAuth = true;
+    const {path} = req.body;
+    console.log(path)
+    if(path == '/design/create'){
+        hasAuth = false;
+    }
+    res.json({
+        status: 1000,
+        msg: '操作成功',
+        data: hasAuth
+    })
+})
 
 module.exports = router

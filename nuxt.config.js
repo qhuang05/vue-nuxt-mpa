@@ -43,6 +43,7 @@ export default {
     '@/plugins/element-ui',
     '@/plugins/axios',
     '@/plugins/foo',
+    '@/plugins/auth',
     {src: '@plugins/fooClient', mode: 'client'},
     {src: '@plugins/fooServer', mode: 'server'}
   ],
@@ -82,7 +83,8 @@ export default {
   build: {
     transpile: [/^element-ui/],
   },
-  // router: {
-  //   middleware: ['auth']
-  // }
+  router: {
+    // middleware: 'auth'
+    base: '/'
+  }
 }

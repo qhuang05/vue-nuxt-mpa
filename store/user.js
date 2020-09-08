@@ -6,6 +6,7 @@ export const state = () => ({
     userInfo: '',
     menuList: [], //头部导航栏
     sideMenuList: [], //头部右侧菜单栏
+    urlAuthMap: {}
 })
 
 export const getters = {}
@@ -30,6 +31,9 @@ export const mutations = {
     UPDATE_MENU(state, data){
         state.menuList = data.menuList;
         state.sideMenuList = data.sideMenuList;
+    },
+    UPDATE_URL_AUTH(state, data){
+        state.urlAuthMap[data.path] = data.isAuth;
     }
 }
 
@@ -52,6 +56,11 @@ export const actions = {
     async getMenu({commit}, args) {
         let menus = await http.post('/user/getMenu', {...args});
         commit('UPDATE_MENU', menus);
+    },
+    async checkUrlAuth({commit}, args) {
+        let isAuth = await http.post('/user/checkUrlAuth', {...args});
+        commit('UPDATE_URL_AUTH', {path: args.path, isAuth});
+        return {path: args.path, isAuth};
     }
 }
 
