@@ -32,7 +32,8 @@ export default {
                 username: this.username,
                 password: this.password
             }
-            this.$store.dispatch('user/login', params).then( () => {
+            this.$store.dispatch('user/login', params).then( data => {
+                // console.log('login data => ', data);
                 this.$router.push('/home');
             })
         }

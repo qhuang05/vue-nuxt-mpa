@@ -1,18 +1,36 @@
 @charset 'UTF-8';
 @import './variable.scss';
 
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
 html, body {
-    font: $BASE_Font;
-    color: $BASE_FontColor;
-    background: $BASE_BgColor;
+    font: $font;
+    color: $fontColor;
+    background: #fff;
     padding:0;
     margin:0;
 }
 .blue{
-    color: $COLOR_1;
+    color: $color1;
 }
 .o8:hover{
     opacity: 0.8;
+}
+.tl{
+    text-align: left;
+}
+.tc{
+    text-align: center;
+}
+.tr{
+    text-align: right;
 }
 .pointer{
     cursor: pointer;
@@ -42,7 +60,7 @@ html, body {
     margin-bottom: 10px;
 }
 .account-level{
-    background: url(../images/VIP-level.png) no-repeat;
+    background: url(~assets/images/VIP-level.png) no-repeat;
     width: 62px;
     display: inline-block;
     height: 20px;

@@ -1,7 +1,7 @@
 import { http } from "~/plugins/axios";
 import Cookie from 'js-cookie'
 
-export  const state = () => ({
+export const state = () => ({
     token: '',
     userInfo: '',
     menuList: [], //头部导航栏
@@ -22,7 +22,7 @@ export const mutations = {
     UPDATE_USERINFO(state, data) {
         state.userInfo = data;
         if(data){
-            window.localStorage.setItem('userInfo', data ? JSON.stringify(data) : '');
+            window.localStorage.setItem('userInfo', JSON.stringify(data));
         } else{
             window.localStorage.removeItem('userInfo');
         }
@@ -35,19 +35,23 @@ export const mutations = {
 
 export const actions = {
     async login({commit}, args) {
-        let ret = await http.post('/user/login', {...args});
+        let userInfo = await http.post('/user/login', {...args});
         commit('SET_TOKEN', 'token_20200910010');
-        commit('UPDATE_USERINFO', ret);
-        return ret;
+        commit('UPDATE_USERINFO', userInfo);
+        return userInfo;
     },
-    async logout({commit}) {
+    async logout({commit}, args) {
         await http.post('/user/logout');
         commit('RESET_TOKEN');
         commit('UPDATE_USERINFO', '');
     },
+    async getUserInfo({commit}, args) {
+        let userInfo = await http.get('/user/getInfo');
+        commit('UPDATE_USERINFO', userInfo);
+    },
     async getMenu({commit}, args) {
-        let ret = await http.post('/user/getMenu', {...args});
-        commit('UPDATE_MENU', ret);
+        let menus = await http.post('/user/getMenu', {...args});
+        commit('UPDATE_MENU', menus);
     }
 }
 

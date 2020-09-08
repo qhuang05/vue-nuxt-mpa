@@ -43,8 +43,8 @@ export default {
     '@/plugins/element-ui',
     '@/plugins/axios',
     '@/plugins/foo',
-    {src: '@/plugins/foo.client', mode: 'client'},
-    {src: '@/plugins/foo.server', mode: 'server'}
+    {src: '@plugins/fooClient', mode: 'client'},
+    {src: '@plugins/fooServer', mode: 'server'}
   ],
   /*
   ** Auto import components
@@ -81,5 +81,8 @@ export default {
   */
   build: {
     transpile: [/^element-ui/],
-  }
+  },
+  // router: {
+  //   middleware: ['auth']
+  // }
 }

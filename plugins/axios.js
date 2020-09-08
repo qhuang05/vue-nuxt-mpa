@@ -6,7 +6,9 @@ const options = {
 }
 const httpService = axios.create({...options});
 
-const requestFn = config => {return config};
+const requestFn = config => {
+    return config
+};
 const responseFn = response => {
     const ret = response.data;
     if(ret.status > 0) {

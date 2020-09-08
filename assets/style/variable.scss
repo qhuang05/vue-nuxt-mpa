@@ -1,12 +1,7 @@
 @charset 'UTF-8';
-$BASE_BgColor: #fff;
-$BASE_FontColor: rgb(89, 90, 90);
-$BASE_FontFamily: "HanHei SC", PingHei, "PingFang SC", STHeitiSC-Light,"Helvetica Neue", Helvetica, "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, Arial, sans-serif;
-$BASE_Font: 12px/1.55 $BASE_FontFamily;
-$COLOR_1: #428bca;
-$COLOR_1_Hover: #337ab7;
-// $COLOR_1_Hover: darken($COLOR_1, 5%) !default;
-$COLOR_2: #f00;
-$COLOR_2_Hover: darken($COLOR_2, 5%) !default;
-$COLOR_3: #ccc;
-$COLOR_3_Hover: darken($COLOR_3, 5%) !default;
+$fontFamily: "HanHei SC", PingHei, "PingFang SC", STHeitiSC-Light,"Helvetica Neue", Helvetica, "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, Arial, sans-serif;
+$fontColor: rgb(89, 90, 90);
+$font: 12px/1.55 $fontFamily;
+$color1: #428bca;
+$color2: #337ab7;
+$color3: rgb(102, 102, 102);

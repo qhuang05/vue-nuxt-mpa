@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>首页</h3>
+    <h3 class="tc">官网首页</h3>
     <nuxt-link to="/login">登录</nuxt-link>
 
     <div class="mt30 mb30">
@@ -10,6 +10,7 @@
       <div>{{list}}</div>
     </div>
 
+    组件：
     <Hello msg="我是Hello组件, asynData不能用于组件中" />
   </div>
 </template>
@@ -24,7 +25,7 @@ export default {
     },
     async asyncData(ctx) {
       let {$axios, params} = ctx;
-      let ret = await $axios.get('/product/list');
+      let ret = await $axios.get('/productType/list');
       return {
         // preList: ret.data.data,   //axios未封装(在nuxt.config.js中配置axios => prefix: '/api')
         preList: ret              //axios封装后, 在vue.config.js下配置plugins(axios.js)
@@ -32,16 +33,16 @@ export default {
     },
     methods: {
       async getList() {
-        let ret = await this.$axios.get('/product/list');
+        let ret = await this.$axios.get('/productType/list');
         // this.list = ret.data.data;  //axios未封装(在nuxt.config.js中配置axios => prefix: '/api')
         this.list = ret;            //axios封装后, 在vue.config.js下配置plugins(axios.js)
       }
     },
     beforeMount() {
-      console.log('beforeMount');
+      // console.log('beforeMount');
     },
     mounted() {
-      console.log('mounted');
+      // console.log('mounted');
       this.getList();
     }
 }

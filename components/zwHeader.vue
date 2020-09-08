@@ -21,21 +21,6 @@
                 <a href="">首页</a>
             </li>
             <li class="nav-item">
-                <a href="">图库</a>
-            </li>
-            <li class="nav-item">
-                <a href="">设计</a>
-                <div class="nav-panel arrow">
-                    <div class="nav-panel-item">
-                        <div class="tit">设计</div>
-                        <ul>
-                            <li><a>设计器</a></li>
-                            <li><a>批量设计</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
                 <a href="">刊登</a>
                 <div class="nav-panel arrow">
                     <div class="nav-panel-item">
@@ -43,10 +28,6 @@
                         <ul>
                             <li><a>定制产品</a></li>
                             <li><a>出单产品</a></li>
-                            <li><a>反解SKU</a></li>
-                            <li><a>素材管理</a></li>
-                            <li><a>通用模板</a></li>
-                            <li><a>汇出记录</a></li>
                         </ul>
                     </div>
                     <div class="nav-panel-item">
@@ -54,9 +35,6 @@
                         <ul>
                             <li><a>定制产品</a></li>
                             <li><a>产品模板</a></li>
-                            <li><a>汇出记录</a></li>
-                            <li><a>UPC管理</a></li>
-                            <li><a>维权举报</a></li>
                         </ul>
                     </div>
                 </div>
@@ -98,10 +76,6 @@
                         <ul>
                             <li><a>我的账号</a></li>
                             <li><a>绑定登录</a></li>
-                            <li><a>账号安全</a></li>
-                            <li><a>VIP服务</a></li>
-                            <li><a>增值服务</a></li>
-                            <li><a>实名认证</a></li>
                         </ul>
                     </div> -->
                 </div>
@@ -111,6 +85,7 @@
 </template>
 
 <script>
+import Cookie from 'js-cookie'
 export default {
     computed: {
         userInfo(){
@@ -118,6 +93,7 @@ export default {
                 let userInfo = window.localStorage.getItem('userInfo');
                 return userInfo ? JSON.parse(userInfo) : ''
             }
+            // return this.$store.user.userInfo;
         },
         menuList() {
             return this.$store.state.user.menuList;
@@ -137,11 +113,11 @@ export default {
             }
         },
         async logout(){
-            await this.$store.dispatch('user/logout', {username: this.userInfo.username});
+            await this.$store.dispatch('user/logout');
             this.$router.push('/login');
         }
     },
-    mounted(){
+    async mounted(){
         this.getMenu();
     }
 }
@@ -149,7 +125,7 @@ export default {
 <style lang="scss" scoped>
     @import '~/assets/style/variable.scss';
     .top-nav{
-        background-color: $COLOR_1;
+        background-color: $color1;
         box-shadow: 0px 3px 6px 0px rgba(214, 214, 214, 0.5);
         display: flex;
         justify-content: space-between;
@@ -196,7 +172,7 @@ export default {
         }
         &:hover>a,
         &.cur>a{
-            background: $COLOR_1_Hover;
+            background: $color2;
             border-radius: 2px 2px 0 0;
         } 
         &:hover .nav-panel{
@@ -254,7 +230,7 @@ export default {
                 text-decoration: none;
                 color: inherit;
                 &:hover{
-                    background: $COLOR_1;
+                    background: $color2;
                     color: #fff;
                 }
             }
