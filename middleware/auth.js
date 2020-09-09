@@ -1,23 +1,29 @@
-// 问题：使用中间件来拦截时，手动输入的地址无法拦截，所以改用插件
+// 路由鉴权
 import Cookie from 'js-cookie'
 
-export default ({app}) => {
-    app.router.beforeEach((to, from, next) => {
-        // if(process.client){
-            let token = Cookie.get('token');
-            console.log('middleware 路由拦截', token, from)
-            if(token){
-                console.log('to => ', to.path)
-                if(to.path == '/login') {
-                    next();
-                    app.router.push('/home');
-                } else{
-                    next();
-                }
-            } else{
-                next();  // 没有写next()页面会崩溃, 也不能使用next('/login'), 原因未解决。
-                app.router.push({path: '/login', query: {path: to.path}});
+const whiteList = ['/', '/login'];
+
+export default async ({route, store, redirect, req, res}) => {
+    console.log('===== middleware auth =====');
+    let token;
+    if(process.client){
+        token = Cookie.get('token');
+    } else {
+        console.log('req', req.headers.cookie)
+    }
+    console.log('token', token);
+    if(token) {
+        if(route.path == '/login'){
+            redirect('/home');
+        } else {
+            let {isAuth} = await store.dispatch('user/checkUrlAuth', {path: route.path});
+            if(!isAuth){
+                redirect('/home');
             }
-        // }
-    })
+        }
+    } else {
+        if(!whiteList.includes(route.path)) {
+            redirect(`/login?redirect=${route.path}`);
+        }
+    }
 }

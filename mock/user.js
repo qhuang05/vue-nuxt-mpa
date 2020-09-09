@@ -82,7 +82,7 @@ router.post('/getMenu', (req, res)=>{
         default:
             menuList = [{
                 name: '首页',
-                path: '/'
+                path: '/home'
             }, {
                 name: '设计',
                 path: '',
@@ -111,7 +111,7 @@ router.post('/getMenu', (req, res)=>{
 router.post('/checkUrlAuth', (req, res)=>{
     let hasAuth = true;
     const {path} = req.body;
-    console.log(path)
+    console.log('req path', path);
     if(path == '/design/create'){
         hasAuth = false;
     }

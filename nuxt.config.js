@@ -42,8 +42,8 @@ export default {
     {src: '@/assets/style/font/iconfont.js', ssr: false},
     '@/plugins/element-ui',
     '@/plugins/axios',
+    // '@/plugins/auth',
     '@/plugins/foo',
-    '@/plugins/auth',
     {src: '@plugins/fooClient', mode: 'client'},
     {src: '@plugins/fooServer', mode: 'server'}
   ],
@@ -84,7 +84,6 @@ export default {
     transpile: [/^element-ui/],
   },
   router: {
-    // middleware: 'auth'
-    base: '/'
+    middleware: 'auth',
   }
 }

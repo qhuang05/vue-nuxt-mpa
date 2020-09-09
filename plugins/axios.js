@@ -19,7 +19,6 @@ const responseFn = response => {
     }
 }
 const errorFn = error => {
-    alert('error');
     return Promise.reject(error)
 }
 
