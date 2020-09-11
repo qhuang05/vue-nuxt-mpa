@@ -1,15 +1,23 @@
 @charset 'UTF-8';
 @import './variable.scss';
 
+// nuxt页面切换效果 start
 .page-enter-active,
 .page-leave-active {
     transition: opacity 0.2s;
 }
-
 .page-enter,
 .page-leave-active {
     opacity: 0;
 }
+// nuxt页面切换效果 end
+
+// elementUI样式 start
+.el-form-item--mini .el-form-item__label,
+.el-form-item--mini .el-form-item__content {
+    font-size: 12px;
+}
+// elementUI样式 end
 
 * {
     margin : 0;
@@ -23,6 +31,7 @@ body {
     background: #fff;
     padding   : 0;
     margin    : 0;
+    min-width: 1280px;
 }
 
 .blue {
@@ -104,8 +113,11 @@ body {
     background-position: -8px -196px;
 }
 
-.com-search-field{
+.zw-search-form{
     border: 1px solid rgb(221, 221, 221);
-	border-top: none;
-    line-height: 2.4;
+    border-top: none;
+    padding: 8px 0;
+}
+.flex{
+    display: flex;
 }

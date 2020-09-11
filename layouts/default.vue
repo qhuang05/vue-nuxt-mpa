@@ -25,15 +25,8 @@
 
 <script>
   export default {
-    data() {
-      return {
-        
-      }
-    },
     computed: {
-      leftHidden(){
-        return this.$store.state.left.isHidden;
-      }
+      leftHidden(){return this.$store.state.left.isHidden}
     }
   }
 </script>

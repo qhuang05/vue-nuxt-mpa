@@ -1,5 +1,3 @@
-import { http } from "~/plugins/axios";
-
 export const state = () => ({
     isHidden: false
 })
@@ -7,7 +5,7 @@ export const state = () => ({
 export const getters = {}
 
 export const mutations = {
-    UPDATE_LEFT_STATUS(state, args = false) {
+    toggleLeft(state, args = false) {
         state.isHidden = args;
     }
 }
