@@ -26,7 +26,6 @@
 <script>
 export default {
   layout: "default",
-  // middleware: ["auth"],
   async asyncData(ctx) {
     if(process.server){
       ctx.app.$fooServer('66');

@@ -4,7 +4,7 @@ import Cookie from 'js-cookie'
 const whiteList = ['/', '/login'];
 
 export default ({app, store, route, redirect}, inject) => {
-    app.router.beforeEach((to, from, next) => {
+    app.router.afterEach((to, from, next) => {
         console.log('==== plugins router ====>', to.path);
         let token = Cookie.get('token');
         if(token){
@@ -14,16 +14,12 @@ export default ({app, store, route, redirect}, inject) => {
                 store.dispatch('user/checkUrlAuth', {path: to.path}).then(res => {
                     if(!res.isAuth){
                         redirect('/home');
-                    } else {
-                        next();
                     }
                 })
             }
         } else {
             if(!whiteList.includes(to.path)) {
                 redirect(`/login?redirect=${to.path}`);
-            } else {
-                next();
             }
         }
     })

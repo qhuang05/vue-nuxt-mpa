@@ -3,69 +3,109 @@
 
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.2s;
-}
-.page-enter,
-.page-leave-active {
-  opacity: 0;
+    transition: opacity 0.2s;
 }
 
-html, body {
-    font: $font;
-    color: $fontColor;
-    background: #fff;
-    padding:0;
-    margin:0;
+.page-enter,
+.page-leave-active {
+    opacity: 0;
 }
-.blue{
+
+* {
+    margin : 0;
+    padding: 0;
+}
+
+html,
+body {
+    font      : $font;
+    color     : $fontColor;
+    background: #fff;
+    padding   : 0;
+    margin    : 0;
+}
+
+.blue {
     color: $color1;
 }
-.o8:hover{
+
+.o8:hover {
     opacity: 0.8;
 }
-.tl{
+
+.tl {
     text-align: left;
 }
-.tc{
+
+.tc {
     text-align: center;
 }
-.tr{
+
+.tr {
     text-align: right;
 }
-.pointer{
+
+.pointer {
     cursor: pointer;
 }
-.ml5{
+
+.ml5 {
     margin-left: 5px;
 }
-.mr5{
+
+.mr5 {
     margin-right: 5px;
 }
-.mt5{
+
+.mt5 {
     margin-top: 5px;
 }
-.mb5{
+
+.mb5 {
     margin-bottom: 5px;
 }
-.ml10{
+
+.ml10 {
     margin-left: 10px;
 }
-.mr10{
+
+.mr10 {
     margin-right: 10px;
 }
-.mt10{
+
+.mt10 {
     margin-top: 10px;
 }
-.mb10{
+
+.mb10 {
     margin-bottom: 10px;
 }
-.account-level{
-    background: url(~assets/images/VIP-level.png) no-repeat;
-    width: 62px;
-    display: inline-block;
-    height: 20px;
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix::after {
+    content: '\200B';
+    display: block;
+    height : 0;
+    clear  : both;
+}
+
+.account-level {
+    background    : url(~assets/images/VIP-level.png) no-repeat;
+    width         : 62px;
+    display       : inline-block;
+    height        : 20px;
     vertical-align: middle;
 }
-.account-level.level-icon4{
+
+.account-level.level-icon4 {
     background-position: -8px -196px;
+}
+
+.com-search-field{
+    border: 1px solid rgb(221, 221, 221);
+	border-top: none;
+    line-height: 2.4;
 }

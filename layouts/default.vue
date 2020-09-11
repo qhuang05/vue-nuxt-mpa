@@ -1,10 +1,13 @@
 <template>
   <div>
-      <zw-header></zw-header>
-      <div class="main">
-        <nuxt />
+      <Header></Header>
+      <div class="main transition" :class="{'left-hidden': leftHidden}">
+        <Leftbar />
+        <div class="content">
+          <nuxt />
+        </div>
       </div>
-      <zw-footer></zw-footer>
+      <Footer></Footer>
       <!-- <header>
         <nuxt-link to="/home">首页</nuxt-link>
         <nuxt-link to="/product">产品页</nuxt-link>
@@ -17,38 +20,38 @@
         导航菜单：
         <Menu />
       </div> -->
-      <!-- <div class="container">
-        <nuxt />
-      </div> -->
-      <!-- <footer>底部</footer> -->
   </div>
 </template>
 
 <script>
-// import Cookie from 'js-cookie'
-// export default {
-//     computed: {
-//       username(){
-//         if(process.client){
-//           let userInfo = window.localStorage.getItem('userInfo');
-//           return userInfo ? JSON.parse(userInfo).username : '';
-//         }
-//         return ''
-//       }
-//     },
-//     methods: {
-//       logout() {
-//         this.$store.dispatch('user/logout').then(()=>{
-//           this.$router.push('/')
-//         })
-//       }
-//     },
-//     mounted() {
-      
-//     }
-// }
+  export default {
+    data() {
+      return {
+        
+      }
+    },
+    computed: {
+      leftHidden(){
+        return this.$store.state.left.isHidden;
+      }
+    }
+  }
 </script>
 
-<style>
-
+<style lang="scss">
+  .main{
+    padding: 20px;
+    display: flex;
+    transition: all 0.3s;
+    &>.content{
+      flex: 1;
+      margin-left: 10px;
+    }
+    &.left-hidden{
+      margin-left: -232px;
+      &>.content{
+        margin-left: 20px;
+      }
+    }
+  }
 </style>

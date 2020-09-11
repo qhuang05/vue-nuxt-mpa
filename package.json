@@ -18,5 +18,7 @@
     "sass-loader": "^10.0.0",
     "scss-loader": "^0.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "element-theme-chalk": "^2.13.2"
+  }
 }

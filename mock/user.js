@@ -111,7 +111,6 @@ router.post('/getMenu', (req, res)=>{
 router.post('/checkUrlAuth', (req, res)=>{
     let hasAuth = true;
     const {path} = req.body;
-    console.log('req path', path);
     if(path == '/design/create'){
         hasAuth = false;
     }
