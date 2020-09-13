@@ -8,7 +8,7 @@
                     v-show="multiFlag==0&&!isShowSearchOne&&!isShowSearchMulti"
                     class="selected-one-bar"
                 >
-                    <el-radio label="">全选</el-radio>
+                    <el-radio label="" v-if="isShowAll">全选</el-radio>
                     <el-radio 
                         v-for="item in limitList"
                         :key="item.id" 
@@ -89,8 +89,15 @@ export default {
         value: {
             type: String | Number | Boolean
         },
-        isMulti: true,
         multiFlag: 0,    //初始值是否为多选，0单选，1单选
+        isMulti: {
+            type: Boolean,
+            default: false
+        },
+        isShowAll: {
+            type: Boolean,
+            default: true
+        },
         label: '',
     },
     data(){

@@ -107,12 +107,33 @@ body {
 }
 
 .zw-search-form{
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid $borderColor;
     border-top: none;
-    padding: 8px 10px;
+    padding-top: 8px;
+    &>div{
+        padding-right: 20px;
+    }
+    .sorting-box{
+        border-top: 1px solid $borderColor;
+        padding-top: 15px;
+    }
 }
-.flex{
-    display: flex;
+.zw-table-box{
+    border: 1px solid $borderColor;
+    margin-top: 15px;   
+}
+.zw-table{
+    width:100%;
+    .table-th{
+        background: rgb(245, 247, 250);
+        font-weight: bold;
+        text-align: center;
+        color: $fontColor;
+    }
+    .table-td{
+        text-align: center;
+        color: $fontColor;
+    }
 }
 .flex-1{
     flex: 1;
