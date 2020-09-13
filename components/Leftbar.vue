@@ -47,7 +47,7 @@ export default {
             dd{
                 padding-left: 20px; 
                 &:hover, &.cur{
-                    background: $color1;
+                    background: $themeColor;
                     color: #fff;
                 }
             }

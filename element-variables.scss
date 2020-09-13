@@ -16,7 +16,7 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 /* Color
 -------------------------- */
 /// color|1|Brand Color|0
-$--color-primary: #409EFF !default;
+$--color-primary: #428bca !default;
 /// color|1|Background Color|4
 $--color-white: #FFFFFF !default;
 /// color|1|Background Color|4
@@ -106,17 +106,17 @@ $--fill-base: $--color-white !default;
 $--font-path: 'fonts' !default;
 $--font-display: 'auto' !default;
 /// fontSize|1|Font Size|0
-$--font-size-extra-large: 20px !default;
+$--font-size-extra-large: 18px !default;
 /// fontSize|1|Font Size|0
-$--font-size-large: 18px !default;
+$--font-size-large: 16px !default;
 /// fontSize|1|Font Size|0
-$--font-size-medium: 16px !default;
+$--font-size-medium: 14px !default;
 /// fontSize|1|Font Size|0
-$--font-size-base: 14px !default;
+$--font-size-base: 12px !default;
 /// fontSize|1|Font Size|0
-$--font-size-small: 13px !default;
+$--font-size-small: 11px !default;
 /// fontSize|1|Font Size|0
-$--font-size-extra-small: 12px !default;
+$--font-size-extra-small: 10px !default;
 /// fontWeight|1|Font Weight|1
 $--font-weight-primary: 500 !default;
 /// fontWeight|1|Font Weight|1
@@ -128,7 +128,7 @@ $--font-line-height-secondary: 16px !default;
 $--font-color-disabled-base: #bbb !default;
 /* Size
 -------------------------- */
-$--size-base: 14px !default;
+$--size-base: 12px !default;
 
 /* z-index
 -------------------------- */
@@ -150,13 +150,13 @@ $--icon-color-base: $--color-info !default;
 /* Checkbox
 -------------------------- */
 /// fontSize||Font|1
-$--checkbox-font-size: 14px !default;
+$--checkbox-font-size: 12px !default;
 /// fontWeight||Font|1
 $--checkbox-font-weight: $--font-weight-primary !default;
 /// color||Color|0
 $--checkbox-font-color: $--color-text-regular !default;
-$--checkbox-input-height: 14px !default;
-$--checkbox-input-width: 14px !default;
+$--checkbox-input-height: 12px !default;
+$--checkbox-input-width: 12px !default;
 /// borderRadius||Border|2
 $--checkbox-border-radius: $--border-radius-small !default;
 /// color||Color|0
@@ -220,8 +220,8 @@ $--radio-font-size: $--font-size-base !default;
 $--radio-font-weight: $--font-weight-primary !default;
 /// color||Color|0
 $--radio-font-color: $--color-text-regular !default;
-$--radio-input-height: 14px !default;
-$--radio-input-width: 14px !default;
+$--radio-input-height: 12px !default;
+$--radio-input-width: 12px !default;
 /// borderRadius||Border|2
 $--radio-input-border-radius: $--border-radius-circle !default;
 /// color||Color|0
@@ -289,13 +289,13 @@ $--select-multiple-input-color: #666 !default;
 /// color||Color|0
 $--select-input-focus-border-color: $--color-primary !default;
 /// fontSize||Font|1
-$--select-input-font-size: 14px !default;
+$--select-input-font-size: 12px !default;
 
 $--select-option-color: $--color-text-regular !default;
 $--select-option-disabled-color: $--color-text-placeholder !default;
 $--select-option-disabled-background: $--color-white !default;
 /// height||Other|4
-$--select-option-height: 34px !default;
+$--select-option-height: 26px !default;
 $--select-option-hover-background: $--background-color-base !default;
 /// color||Color|0
 $--select-option-selected-font-color: $--color-primary !default;

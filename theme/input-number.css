@@ -503,7 +503,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 12px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -560,7 +560,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 12px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -581,7 +581,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #C0C4CC;
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1); }

@@ -10,7 +10,7 @@
 <script>
 export default {
     computed: {
-        isLeftHidden() {return this.$store.state.left.isHidden}
+        isLeftHidden(){return this.$store.state.left.isHidden}
     },
     methods: {
         toggleLeft(){

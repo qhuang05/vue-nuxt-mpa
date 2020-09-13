@@ -49,10 +49,10 @@
             </a>
             <div class="account-items">
                 <div class="user">
-                    <i class="icon-personal blue mr5" style="font-size:16px;"></i>
+                    <i class="icon-personal main-color mr5" style="font-size:16px;"></i>
                     <span class="mr5">{{userInfo ? userInfo.username : ''}}</span>
                     <span class="account-level level-icon4"></span>
-                    <i class="icon-down blue mr5"></i> 
+                    <i class="icon-down main-color mr5"></i> 
                     <span class="mr5" style="font-size:16px;">|</span>
                     <el-badge :value="3" class="item">
                         <i class="icon-carts" style="font-size:18px;vertical-align:-4px;"></i>
@@ -68,8 +68,8 @@
                         </ul>
                     </div>
                     <div class="panel-bottom">
-                        <a class="mr10 blue o8 pointer">切换关联主账号</a>
-                        <a class="blue o8 pointer" @click="logout">退出登录</a>
+                        <a class="mr10 main-color o8 pointer">切换关联主账号</a>
+                        <a class="main-color o8 pointer" @click="logout">退出登录</a>
                     </div>
                     <!-- <div class="nav-panel-item">
                         <div class="tit">账号管理</div>
@@ -125,7 +125,7 @@ export default {
 <style lang="scss" scoped>
     @import '~/assets/style/variable.scss';
     .top-nav{
-        background-color: $color1;
+        background-color: $themeColor;
         box-shadow: 0px 3px 6px 0px rgba(214, 214, 214, 0.5);
         display: flex;
         justify-content: space-between;
@@ -172,7 +172,7 @@ export default {
         }
         &:hover>a,
         &.cur>a{
-            background: $color2;
+            background: $themeColorHover;
             border-radius: 2px 2px 0 0;
         } 
         &:hover .nav-panel{
@@ -230,7 +230,7 @@ export default {
                 text-decoration: none;
                 color: inherit;
                 &:hover{
-                    background: $color2;
+                    background: $themeColorHover;
                     color: #fff;
                 }
             }

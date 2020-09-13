@@ -7,7 +7,7 @@
             <a href="https://www.hicustom.com/frontend/afterSaleService/logisticsDescription" target="_blank">物流协议</a> |
             <a href="https://www.hicustom.com/frontend/HelperDocument/index" target="_blank">帮助中心</a>
         </div>
-        <div>
+        <div class="copyright">
             © 2013-2020 指纹科技 版权所有  |  增值业务许可证：闽B2-20191001  |  闽ICP备15019889号-1 |  营业执照
         </div>
     </footer>
@@ -24,6 +24,15 @@ export default {
     footer {
         text-align:center;
         padding: 20px 0;
-        border-top: 1px solid $color4;
+        border-top: 1px solid $borderColor;
+        font-weight: bold;
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+        .copyright{
+            font-weight: normal;
+            margin-top: 10px;
+        }
     }
 </style>

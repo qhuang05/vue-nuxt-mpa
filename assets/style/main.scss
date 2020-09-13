@@ -12,13 +12,6 @@
 }
 // nuxt页面切换效果 end
 
-// elementUI样式 start
-.el-form-item--mini .el-form-item__label,
-.el-form-item--mini .el-form-item__content {
-    font-size: 12px;
-}
-// elementUI样式 end
-
 * {
     margin : 0;
     padding: 0;
@@ -34,8 +27,8 @@ body {
     min-width: 1280px;
 }
 
-.blue {
-    color: $color1;
+.main-color {
+    color: $themeColor;
 }
 
 .o8:hover {
@@ -116,8 +109,11 @@ body {
 .zw-search-form{
     border: 1px solid rgb(221, 221, 221);
     border-top: none;
-    padding: 8px 0;
+    padding: 8px 10px;
 }
 .flex{
     display: flex;
+}
+.flex-1{
+    flex: 1;
 }

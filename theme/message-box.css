@@ -930,7 +930,7 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   padding: 12px 20px;
-  font-size: 14px;
+  font-size: 12px;
   border-radius: 4px; }
   .el-button + .el-button {
     margin-left: 10px; }
@@ -1183,7 +1183,7 @@
         border-color: #e9e9eb; }
   .el-button--medium {
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 4px; }
     .el-button--medium.is-round {
       padding: 10px 20px; }
@@ -1556,7 +1556,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 12px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -1613,7 +1613,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 12px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -1634,7 +1634,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #C0C4CC;
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1); }
@@ -1844,7 +1844,7 @@
   background-color: #FFFFFF;
   border-radius: 4px;
   border: 1px solid #EBEEF5;
-  font-size: 18px;
+  font-size: 16px;
   -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   text-align: left;
@@ -1871,7 +1871,7 @@
   .el-message-box__title {
     padding-left: 0;
     margin-bottom: 0;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1;
     color: #303133; }
   .el-message-box__headerbtn {
@@ -1891,7 +1891,7 @@
   .el-message-box__content {
     padding: 10px 15px;
     color: #606266;
-    font-size: 14px; }
+    font-size: 12px; }
   .el-message-box__container {
     position: relative; }
   .el-message-box__input {

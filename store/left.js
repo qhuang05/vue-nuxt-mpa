@@ -1,5 +1,5 @@
 export const state = () => ({
-    isHidden: false
+    isHidden: true
 })
 
 export const getters = {}

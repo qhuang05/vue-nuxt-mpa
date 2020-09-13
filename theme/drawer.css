@@ -459,7 +459,7 @@
   .el-drawer__close-btn {
     border: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     color: inherit;
     background-color: transparent; }
   .el-drawer__body {
