@@ -1,32 +1,34 @@
 <template>
     <div class="zw-pagination">
         <el-row type="flex" justify="space-between" align="middle">
-            <el-row>共?个</el-row>
+            <el-row>共{{total}}个</el-row>
             <el-row type="flex" justify="end" align="middle">
                 <div style="margin-right:10px">
                     显示
-                    <el-select v-model="perPage" size="mini" placeholder="">
-                        <el-option label="20" value="20"></el-option>
-                        <el-option label="30" value="30"></el-option>
-                        <el-option label="50" value="50"></el-option>
-                        <el-option label="100" value="100"></el-option>
-                        <el-option label="200" value="200"></el-option>
-                    </el-select>每页
+                    <el-select :value="perPage" size="mini" placeholder="" @change="changePageSize">
+                        <el-option 
+                            :label="item" 
+                            :value="item" 
+                            v-for="item in pageSizes" 
+                            :key="item"
+                        ></el-option>
+                    </el-select> 每页
                 </div>
                 <el-pagination
                     background
                     layout="prev, pager, next"
                     :total="total"
                     :current-page="curPage"
-                    :page-sizes="pageSizes"
+                    :page-size="perPage"
+                    @current-change="changePage"
                 >
                 </el-pagination>
-                <div style="margin-left:10px;">共 ? 页</div>
+                <div style="margin-left:10px;">共 {{maxPage}} 页</div>
                 <div style="margin-left:20px">
                     到第
-                    <el-input v-model="toPage" placeholder="" size="mini" @input="onlyNumber"></el-input>
+                    <el-input v-model="toPage" placeholder="" size="mini" @input="onlyNumber" @change="changePage"></el-input>
                     页
-                    <el-button size="mini" style="margin-left:20px" @click="gotoPage">确定</el-button>
+                    <el-button size="mini" style="margin-left:20px" @click="changePage('confirm')">确定</el-button>
                 </div>
             </el-row>
         </el-row>
@@ -42,7 +44,7 @@ export default {
         },
         curPage: {
             type: Number,
-            default:1
+            default: 1
         },
         perPage: {
             type: Number,
@@ -58,13 +60,41 @@ export default {
             toPage: ''
         }
     },
+    computed: {
+        maxPage(){
+            return Math.ceil(this.total/this.perPage);
+        }
+    },
     methods:{
         onlyNumber(){
-            this.toPage = this.toPage.replace(/[^\d]+/g, '');
+            this.toPage = this.toPage.replace(/[^\d]+/g, '');   
         },
-        gotoPage(){
-            
-        }
+        changePage(n){
+            let val = Number(n);
+            if(n=='confirm'){
+                val = Number(this.toPage);
+            }
+            if(val > this.maxPage) {
+                this.$message({
+                    message: '请输入正确的页数',
+                    type: 'error'
+                })
+                this.toPage = '';
+                return;
+            }
+            this.$emit('update:curPage', val);
+            this.$emit('change', {
+                curPage: val,
+                perPage: this.perPage
+            });
+        },
+        changePageSize(val){
+            this.$emit('update:perPage', val);
+            this.$emit('change', {
+                curPage: this.curPage,
+                perPage: val
+            })
+        },
     }
 }
 </script>
@@ -73,8 +103,8 @@ export default {
     .zw-pagination{
         padding: 10px;
     }
-    /deep/ .el-select{
-        width: 70px;
+    /deep/ .el-select > .el-input{
+        width: 80px;
     }
     /deep/ .el-input{
         width: 60px;

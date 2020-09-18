@@ -55,8 +55,8 @@
                         </el-row>
                     </el-col>
                     <el-col :span="12" style="padding-left: 20px;">    
-                        <el-button type="primary" @click="formSearch('listForm')">搜索</el-button>
-                        <el-button @click="formReset('listForm')">重置</el-button>
+                        <el-button type="primary" @click="formSearch">搜索</el-button>
+                        <el-button @click="formReset">重置</el-button>
                     </el-col>
                 </el-row>
             </el-form-item>
@@ -80,9 +80,11 @@
         </el-form>
         <div class="zw-table-box">
             <Pagination
-                :total="1000"
-                :cur-page="1"
-                :per-page="20"
+                :total.sync="total"
+                :cur-page.sync="curPage"
+                :per-page.sync="perPage"
+                @change="formSearch"
+                ref="pager1"
             ></Pagination>
             <el-table
                 class="zw-table"
@@ -104,9 +106,11 @@
                 </el-table-column>
             </el-table>
              <Pagination
-                :total="1000"
-                :cur-page="1"
-                :per-page="20"
+                :total.sync="total"
+                :cur-page.sync="curPage"
+                :per-page.sync="perPage"
+                @change="formSearch"
+                ref="pager2"
             ></Pagination>
         </div>
         <!-- <nuxt-link to="/productType/edit/100">商品详情</nuxt-link> -->
@@ -138,6 +142,9 @@ export default {
             },
             customerList,
             sortingList,
+            total: 1000,
+            curPage: 1,
+            perPage: 20,
             tableData: [{
                 date: '2016-05-02',
                 name: '王小虎',
@@ -163,6 +170,8 @@ export default {
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1516 弄'
             }],
+
+
             checkAll: false,
             checkedCities: ['上海', '北京'],
             cities: cityOptions,
@@ -176,8 +185,8 @@ export default {
     },
     methods: {
         // 搜索
-        formSearch(formName){
-            this.$refs[formName].validate(isValid => {
+        formSearch(){
+            this.$refs['listForm'].validate(isValid => {
                 if(isValid){
                     console.log('submit');
                 } else{
@@ -186,8 +195,8 @@ export default {
             });
         },
         // 重置
-        formReset(formName){
-            this.$refs[formName].resetFields();
+        formReset(){
+            this.$refs['listForm'].resetFields();
             console.log(this.$children)
         },
         sortHandler(sortField, sortType){

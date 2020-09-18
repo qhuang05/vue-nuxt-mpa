@@ -26,6 +26,8 @@ export default {
     .left-bar {
         width: 212px;
         font-size: 13px;
+        flex-shrink: 0;
+        flex-grow: 0;
         display: block;
         .panel-item, .panel-bottom{
             border: 1px solid #ddd;
