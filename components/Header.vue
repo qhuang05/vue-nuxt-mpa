@@ -187,6 +187,7 @@ export default {
         left: -102px;
         top: 38px; 
         position: absolute;
+        z-index: 999999999;
         display:none;
         &.arrow::before{
             content: '';

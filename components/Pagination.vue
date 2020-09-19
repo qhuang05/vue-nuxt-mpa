@@ -104,7 +104,7 @@ export default {
         padding: 10px;
     }
     /deep/ .el-select > .el-input{
-        width: 80px;
+        width: 70px;
     }
     /deep/ .el-input{
         width: 60px;

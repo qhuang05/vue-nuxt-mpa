@@ -83,6 +83,18 @@ body {
     margin-bottom: 10px;
 }
 
+.flex-1{
+    flex: 1;
+}
+
+.fr{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
 .clearfix {
     *zoom: 1;
 }
@@ -134,7 +146,4 @@ body {
         text-align: center;
         color: $fontColor;
     }
-}
-.flex-1{
-    flex: 1;
 }

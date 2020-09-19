@@ -103,7 +103,7 @@ export default {
     data(){
         return {
             selectedOne: this.value,
-            selectedMulti: this.value ? this.value.split(',') : [],
+            selectedMulti: this.value ? String(this.value).split(',') : [],
             searchKey: '',
             isShowSearchOne: false,
             isShowSearchMulti: false,
@@ -138,6 +138,12 @@ export default {
             return this.selectedMultiArr.map(item=>item.name).join('、');
         }
    },
+   watch: {
+       'value': function(newval, oldval){
+           this.selectedOne = newval;
+           this.selectedMulti = newval ? String(newval).split(',') : [];
+       }
+   },
    methods: {
         selectHandler(type){
             if(type=='one'){
@@ -151,9 +157,10 @@ export default {
             }
         },
         clearMultiSelect(){
-            this.$emit('update:multiFlag', 0);
             this.selectedOne = '';
             this.selectedMulti = [];
+            this.$emit('input', this.selectedOne);
+            this.$emit('update:multiFlag', 0);
         },
         searchHandler(){
             this.filterList = this.list.filter(item=>{
