@@ -20,7 +20,8 @@ export default {
     layout: 'blank',
     data() {
       return {
-        list: []
+        list: [],
+        list2: [],
       }
     },
     async asyncData(ctx) {

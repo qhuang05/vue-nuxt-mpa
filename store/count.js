@@ -18,7 +18,7 @@ export const mutations = {
 
 export const actions = {
     async asyncAdd({commit}, args=1) {
-        await http.post('/product/test?from=asyncAdd');
+        await http.post('/productType/test?from=asyncAdd');
         commit('ADD', args);
     }
 }

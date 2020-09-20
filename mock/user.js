@@ -68,7 +68,7 @@ router.post('/getMenu', (req, res)=>{
         case 'admin':
             menuList = [{
                 name: '首页',
-                path: '/'
+                path: '/home'
             }, {
                 name: '选品',
                 path: '',

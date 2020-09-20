@@ -2,9 +2,9 @@
     <div class="left-bar">
         <div class="panel-item">
             <dl>
-                <dt>工单管理</dt>
-                <dd class="cur"><nuxt-link to="/workOrder">我的工单</nuxt-link></dd>
-                <dd><nuxt-link to="/workOrder/create">提交工单</nuxt-link></dd>
+                <dt>选品管理</dt>
+                <dd class="cur"><nuxt-link to="/productType">全部选品</nuxt-link></dd>
+                <dd><nuxt-link to="/productType/counter">成本计算器</nuxt-link></dd>
             </dl>
         </div>
         <div class="panel-bottom">

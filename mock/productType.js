@@ -13,4 +13,11 @@ router.get('/list', (req, res) => {
     })
 });
 
+router.post('/test', (req, res) => {
+    res.json({
+        status: 1000,
+        msg: '操作成功'
+    })
+});
+
 module.exports = router
