@@ -8,7 +8,13 @@ router.post('/login', (req, res)=>{
         res.json({
             status: 1000,
             msg: '登录成功',
-            data: {username, level:4}
+            data: {
+                token: username=='admin' ? 'token_2020a' : 'tpken_2020t',
+                userInfo: {
+                    username, 
+                    level: username=='admin' ? 4 : 3
+                }
+            }     
         })
     } else{
         res.json({
@@ -29,7 +35,8 @@ router.post('/logout', (req, res)=>{
 
 // 获取用户信息
 router.get('/getInfo', (req, res)=>{
-    const {username} = req.body;
+    const cookie = req.headers.cookie;
+    let username = cookie.indexOf('token_2020a')>-1 ? 'admin' : 'test'
     res.json({
         status: 1000,
         msg: '退出成功',

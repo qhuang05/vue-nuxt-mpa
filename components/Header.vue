@@ -88,37 +88,24 @@
 import Cookie from 'js-cookie'
 export default {
     computed: {
-        userInfo(){
-            if(process.client){
-                let userInfo = window.localStorage.getItem('userInfo');
-                return userInfo ? JSON.parse(userInfo) : ''
-            }
-            // return this.$store.user.userInfo;
+        userInfo() {
+            return this.$store.state.user.userInfo;
         },
         menuList() {
             return this.$store.state.user.menuList;
         },
-        sideMenuList(){
+        sideMenuList() {
             return this.$store.state.user.sideMenuList;
         }
     },
     methods: {
-        async getMenu() {
-            let userInfo = window.localStorage.getItem('userInfo');
-            if(userInfo){
-                let {username} = JSON.parse(userInfo);
-                await this.$store.dispatch('user/getMenu', {username});
-            } else {
-                this.$router.push('/login');
-            }
-        },
-        async logout(){
+        async logout() {
             await this.$store.dispatch('user/logout');
             this.$router.push('/login');
         }
     },
-    async mounted(){
-        this.getMenu();
+    async mounted() {
+
     }
 }
 </script>

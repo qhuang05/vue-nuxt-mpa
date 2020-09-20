@@ -12,54 +12,51 @@ export const state = () => ({
 export const getters = {}
 
 export const mutations = {
-    SET_TOKEN(state, token) {
+    setToken(state, token) {
         state.token = token;
         Cookie.set('token', token);
     },
-    RESET_TOKEN(state) {
+    resetToken(state) {
         state.token = '';
         Cookie.remove('token');
     },
-    UPDATE_USERINFO(state, data) {
+    updateUserInfo(state, data) {
         state.userInfo = data;
-        if (data) {
-            window.localStorage.setItem('userInfo', JSON.stringify(data));
-        } else {
-            window.localStorage.removeItem('userInfo');
-        }
     },
-    UPDATE_MENU(state, data) {
+    updateMenu(state, data) {
         state.menuList = data.menuList;
         state.sideMenuList = data.sideMenuList;
     },
-    UPDATE_URL_AUTH(state, data) {
+    updateUrlAuth(state, data) {
         state.urlAuthMap[data.path] = data.isAuth;
     }
 }
 
 export const actions = {
     async login({ commit }, args) {
-        let userInfo = await http.post('/user/login', { ...args });
-        commit('SET_TOKEN', 'token_20200910010');
-        commit('UPDATE_USERINFO', userInfo);
-        return userInfo;
+        let ret = await http.post('/user/login', { ...args });
+        commit('setToken', ret.token);
+        commit('updateUserInfo', ret.userInfo);
+        return ret.userInfo;
     },
     async logout({ commit }, args) {
         await http.post('/user/logout');
-        commit('RESET_TOKEN');
-        commit('UPDATE_USERINFO', '');
+        commit('resetToken');
+        commit('updateUserInfo', '');
     },
     async getUserInfo({ commit }, args) {
         let userInfo = await http.get('/user/getInfo');
-        commit('UPDATE_USERINFO', userInfo);
+        commit('updateUserInfo', userInfo);
+        return userInfo;
     },
     async getMenu({ commit }, args) {
         let menus = await http.post('/user/getMenu', { ...args });
-        commit('UPDATE_MENU', menus);
+        commit('updateMenu', menus);
+        return menus;
     },
     async checkUrlAuth({ commit }, args) {
         let isAuth = await http.post('/user/checkUrlAuth', { ...args });
-        commit('UPDATE_URL_AUTH', { path: args.path, isAuth });
+        commit('updateUrlAuth', { path: args.path, isAuth });
         return { path: args.path, isAuth };
     }
 }
